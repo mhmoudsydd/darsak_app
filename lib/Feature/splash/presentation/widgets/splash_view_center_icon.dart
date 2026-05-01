@@ -1,6 +1,7 @@
 import 'package:darsak/core/extension/context_extension.dart';
 import 'package:darsak/core/extension/num_extension.dart';
 import 'package:darsak/core/utils/app_colors.dart';
+import 'package:darsak/core/utils/logo_text.dart';
 import 'package:flutter/material.dart';
 
 class SplashViewCenterIcon extends StatelessWidget {
@@ -10,15 +11,7 @@ class SplashViewCenterIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          'دروسك',
-          style: TextStyle(
-            fontSize: context.pw(0.18),
-            fontWeight: FontWeight.bold,
-            fontFamily: 'Marhey',
-            color:  AppColors.primaryColor,
-          ),
-        ),
+        LogoText(fontSize: context.pw(0.18), fontWeight: FontWeight.bold),
         Align(
           alignment: Alignment.center,
           child: Container(

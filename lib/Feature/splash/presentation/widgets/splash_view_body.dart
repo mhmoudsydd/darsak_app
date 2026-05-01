@@ -1,4 +1,4 @@
-import 'package:darsak/Feature/splash/presentation/widgets/graduate_icon.dart';
+import 'package:darsak/Feature/splash/presentation/widgets/app_icon.dart';
 import 'package:darsak/Feature/splash/presentation/widgets/splash_view_center_icon.dart';
 import 'package:darsak/core/extension/num_extension.dart';
 import 'package:flutter/material.dart';
@@ -18,11 +18,11 @@ class SplashViewBody extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
-    
+
       children: [
         1.sbh,
-        FadeTransition(opacity: fadeAnimation,child: SplashViewCenterIcon()),
-        SlideTransition(position: slideAnimation,child: GraduateIcon()),
+        FadeTransition(opacity: fadeAnimation, child: SplashViewCenterIcon()),
+        SlideTransition(position: slideAnimation, child: AppIcon()),
       ],
     );
   }

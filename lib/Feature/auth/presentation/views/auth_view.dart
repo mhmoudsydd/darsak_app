@@ -1,8 +1,9 @@
-import 'package:darsak/Feature/auth/presentation/widgets/auth_app_name.dart';
 import 'package:darsak/Feature/auth/presentation/widgets/bannar_auth_image.dart';
 import 'package:darsak/Feature/auth/presentation/widgets/bottom_container_auth_widget.dart';
 import 'package:darsak/Feature/auth/presentation/widgets/secure_container.dart';
+import 'package:darsak/core/extension/context_extension.dart';
 import 'package:darsak/core/extension/num_extension.dart';
+import 'package:darsak/core/utils/logo_text.dart';
 import 'package:flutter/material.dart';
 
 class AuthView extends StatelessWidget {
@@ -20,7 +21,7 @@ class AuthView extends StatelessWidget {
             BannerAuthImage(),
             SecureContainer(),
             20.sbh,
-            AuthAppName(),
+            LogoText(fontSize: context.pw(0.15), fontWeight: FontWeight.bold),
             5.sbh,
             BottomContainerAuthWidget(),
           ],
@@ -29,7 +30,3 @@ class AuthView extends StatelessWidget {
     );
   }
 }
-
-
-
-

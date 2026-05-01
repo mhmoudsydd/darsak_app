@@ -2,21 +2,19 @@ import 'package:darsak/Feature/auth/presentation/widgets/auth_button.dart';
 import 'package:darsak/Feature/auth/presentation/widgets/auth_container_button.dart';
 import 'package:darsak/core/extension/context_extension.dart';
 import 'package:darsak/core/extension/num_extension.dart';
-import 'package:darsak/core/extension/widget_extension.dart';
 import 'package:darsak/core/utils/app_colors.dart';
 import 'package:darsak/core/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BottomContainerAuthWidget extends StatelessWidget {
-  const BottomContainerAuthWidget({
-    super.key,
-  });
+  const BottomContainerAuthWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
+        padding: EdgeInsets.all(25),
         width: context.pw(1),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -29,15 +27,16 @@ class BottomContainerAuthWidget extends StatelessWidget {
           children: [
             AuthContainerText(),
             Expanded(child: 40.sbh),
-    
+
             AuthButton(
               text: 'تسجيل الدخول باستخدام جوجل',
               icon: 'googleIcon',
               onPressed: () {
-                context.push(AppRouter.kHomeScreen);
+                context.push(AppRouter.kHomeLayout);
               },
-            ),  20.sbh,
-               AuthButton(
+            ),
+            20.sbh,
+            AuthButton(
               text: 'تسجيل الدخول باستخدام جيت ',
               icon: 'githubIcon',
               onPressed: () {},
@@ -47,7 +46,7 @@ class BottomContainerAuthWidget extends StatelessWidget {
             ),
             100.sbh,
           ],
-        ).paddingAll(25),
+        ),
       ),
     );
   }

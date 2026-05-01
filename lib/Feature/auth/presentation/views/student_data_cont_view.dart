@@ -2,7 +2,6 @@ import 'package:darsak/Feature/auth/presentation/widgets/auth_button.dart';
 import 'package:darsak/Feature/auth/presentation/widgets/student_data_header.dart';
 import 'package:darsak/Feature/auth/presentation/widgets/student_data_shape.dart';
 import 'package:darsak/core/extension/num_extension.dart';
-import 'package:darsak/core/extension/widget_extension.dart';
 import 'package:darsak/core/utils/custom_drop_down_list.dart';
 import 'package:darsak/core/utils/imp_lists.dart';
 import 'package:flutter/material.dart';
@@ -35,88 +34,92 @@ class _StudentDataContactViewState extends State<StudentDataContactView> {
                 key: studentDataFormKey,
                 autovalidateMode: AutovalidateMode.onUserInteractionIfError,
 
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    40.sbh,
-                    StudnetDataHeader(
-                      title: 'متابعة انشاء الحساب',
-                      subtitle: 'بالرجاء ادخال البيانات الخاصة بك للمتابعة',
-                    ),
-                    20.sbh,
-                    // CustomDropdown(
-                    //   placeholderIcon: Icons.location_on_outlined,
-                    //   value: selectedGovern,
-                    //   items: egyptGovernoratesItems,
-                    //   placeholder: 'اختر المحافظة',
-                    //   onChanged: (val) => setState(() => selectedGovern = val),
-                    // ),
-                    ValidateCustomDropDownList(
-                      placeholderIcon: Icons.location_on_outlined,
-
-                      errorMesage: 'مطلوب اختيار المحافظة',
-                      value: selectedGovern,
-                      placeholder: 'اختر المحافظة',
-                      items: egyptGovernoratesItems,
-                      onChanged: (val) => setState(() => selectedGovern = val),
-                    ),
-                    20.sbh,
-                    // CustomDropdown(
-                    //   value: selectedStage,
-                    //   items: stage,
-                    //   placeholder: 'اختر المرحلة الدراسية',
-                    //   onChanged: (val) => setState(() {
-                    //     selectedStage = val;
-                    //     selectedStageEn = stage
-                    //         .firstWhere((element) => element.label == val)
-                    //         .labelEn;
-                    //     selectedSection = null;
-                    //   }),
-                    // ),
-                    ValidateCustomDropDownList(
-                      errorMesage: 'مطلوب اختيار المرحلة الدراسية',
-                      value: selectedStage,
-                      placeholder: 'اختر المرحلة الدراسية',
-                      items: stage,
-                      onChanged: (val) => setState(() {
-                        selectedStage = val;
-                        selectedStageEn = stage
-                            .firstWhere((element) => element.label == val)
-                            .labelEn;
-                        selectedSection = null;
-                      }),
-                    ),
-                    20.sbh,
-                    if (selectedStage != null)
+                child: Padding(
+                  padding: const EdgeInsets.all(25),
+                  child: Column(
+                    
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      40.sbh,
+                      StudnetDataHeader(
+                        title: 'متابعة انشاء الحساب',
+                        subtitle: 'بالرجاء ادخال البيانات الخاصة بك للمتابعة',
+                      ),
+                      20.sbh,
                       // CustomDropdown(
-                      //   value: selectedSection,
-                      //   items: section(selectedStageEn!),
-                      //   placeholder: 'اختر الشعبة',
+                      //   placeholderIcon: Icons.location_on_outlined,
+                      //   value: selectedGovern,
+                      //   items: egyptGovernoratesItems,
+                      //   placeholder: 'اختر المحافظة',
+                      //   onChanged: (val) => setState(() => selectedGovern = val),
+                      // ),
+                      ValidateCustomDropDownList(
+                        placeholderIcon: Icons.location_on_outlined,
+                  
+                        errorMesage: 'مطلوب اختيار المحافظة',
+                        value: selectedGovern,
+                        placeholder: 'اختر المحافظة',
+                        items: egyptGovernoratesItems,
+                        onChanged: (val) => setState(() => selectedGovern = val),
+                      ),
+                      20.sbh,
+                      // CustomDropdown(
+                      //   value: selectedStage,
+                      //   items: stage,
+                      //   placeholder: 'اختر المرحلة الدراسية',
                       //   onChanged: (val) => setState(() {
-                      //     selectedSection = val;
+                      //     selectedStage = val;
+                      //     selectedStageEn = stage
+                      //         .firstWhere((element) => element.label == val)
+                      //         .labelEn;
+                      //     selectedSection = null;
                       //   }),
                       // ),
                       ValidateCustomDropDownList(
-                        errorMesage: 'مطلوب اختيار الشعبة',
-                        value: selectedSection,
-                        placeholder: 'اختر الشعبة',
-                        items: section(selectedStageEn!),
+                        errorMesage: 'مطلوب اختيار المرحلة الدراسية',
+                        value: selectedStage,
+                        placeholder: 'اختر المرحلة الدراسية',
+                        items: stage,
                         onChanged: (val) => setState(() {
-                          selectedSection = val;
+                          selectedStage = val;
+                          selectedStageEn = stage
+                              .firstWhere((element) => element.label == val)
+                              .labelEn;
+                          selectedSection = null;
                         }),
                       ),
-                    20.sbh,
-                    AuthButton(
-                      text: 'إنشاء',
-                      onPressed: () {
-                        if (studentDataFormKey.currentState!.validate()) {}
-                      },
-                      isTextButton: true,
-                      height: 10,
-                    ),
-                  ],
-                ).paddingAll(25),
+                      20.sbh,
+                      if (selectedStage != null)
+                        // CustomDropdown(
+                        //   value: selectedSection,
+                        //   items: section(selectedStageEn!),
+                        //   placeholder: 'اختر الشعبة',
+                        //   onChanged: (val) => setState(() {
+                        //     selectedSection = val;
+                        //   }),
+                        // ),
+                        ValidateCustomDropDownList(
+                          errorMesage: 'مطلوب اختيار الشعبة',
+                          value: selectedSection,
+                          placeholder: 'اختر الشعبة',
+                          items: section(selectedStageEn!),
+                          onChanged: (val) => setState(() {
+                            selectedSection = val;
+                          }),
+                        ),
+                      20.sbh,
+                      AuthButton(
+                        text: 'إنشاء',
+                        onPressed: () {
+                          if (studentDataFormKey.currentState!.validate()) {}
+                        },
+                        isTextButton: true,
+                        height: 10,
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           ),
