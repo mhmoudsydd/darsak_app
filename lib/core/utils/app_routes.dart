@@ -2,6 +2,7 @@ import 'package:darsak/Feature/auth/presentation/views/auth_view.dart';
 import 'package:darsak/Feature/auth/presentation/views/student_data_cont_view.dart';
 import 'package:darsak/Feature/auth/presentation/views/student_data_view.dart';
 import 'package:darsak/Feature/home/presentation/views/home_layout.dart';
+import 'package:darsak/Feature/home/presentation/views/student_materials_screen.dart';
 import 'package:darsak/Feature/home/presentation/views/subscribe_material_screen.dart';
 import 'package:darsak/Feature/splash/presentation/views/splash_view.dart';
 import 'package:go_router/go_router.dart';
@@ -12,6 +13,8 @@ abstract class AppRouter {
   static const kStudentDataView = '/studentDataView';
   static const kStudentDataContView = '/studentDataContView';
   static const kSubscribtionToSubject = '/subscribtionToSubject';
+  static const kStudentMaterials = '/studentMaterials';
+  static const kTeachersScreen = '/teachersScreen';
 
   static final router = GoRouter(
     routes: [
@@ -33,6 +36,13 @@ abstract class AppRouter {
       GoRoute(
         path: kSubscribtionToSubject,
         builder: (context, state) => const SubscribeMaterialScreen(),
+      ),
+      GoRoute(
+        path: kStudentMaterials,
+        builder: (context, state) {
+          final materials = state.extra as List<dynamic>? ?? [];
+          return StudentMaterialsScreen(materials: materials.cast());
+        },
       ),
     ],
   );

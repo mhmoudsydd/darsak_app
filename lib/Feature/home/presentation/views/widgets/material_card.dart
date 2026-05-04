@@ -1,4 +1,4 @@
-import 'package:darsak/Feature/home/presentation/views/widgets/materials_grid.dart';
+import 'package:darsak/Feature/home/presentation/views/home_view.dart';
 import 'package:darsak/constant.dart';
 import 'package:darsak/core/extension/num_extension.dart';
 import 'package:darsak/core/extension/string_extension.dart';

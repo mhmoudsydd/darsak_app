@@ -59,12 +59,10 @@ class SubscribeCard extends StatelessWidget {
 
           const SizedBox(width: 14),
 
-          // Text block
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Title + tag row
                 Row(
                   children: [
                     Text(

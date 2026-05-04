@@ -1,13 +1,21 @@
+import 'package:darsak/Feature/home/presentation/views/widgets/subscribe_teacher_image.dart';
+import 'package:darsak/Feature/home/presentation/views/widgets/subscribe_teacher_null_image.dart';
 import 'package:darsak/constant.dart';
 import 'package:darsak/core/extension/num_extension.dart';
 import 'package:darsak/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class TeacherAvatar extends StatelessWidget {
-  const TeacherAvatar({super.key, required this.color, required this.name});
+  const TeacherAvatar({
+    super.key,
+    required this.color,
+    required this.name,
+    this.image,
+  });
 
   final Color color;
   final String name;
+  final String? image;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,19 +26,13 @@ class TeacherAvatar extends StatelessWidget {
           decoration: BoxDecoration(
             color: color.withValues(alpha: 0.15),
             shape: BoxShape.circle,
-            border: Border.all(color: color.withValues(alpha: 0.4), width: 2),
+            border: image == null
+                ? Border.all(color: color.withValues(alpha: 0.4), width: 2)
+                : null,
           ),
-          child: Center(
-            child: Text(
-              name.substring(3, 4),
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                fontFamily: Constant.kMarFontFamily,
-                color: color,
-              ),
-            ),
-          ),
+          child: image == null
+              ? SubscribeTeacherNullImage(name: name, color: color)
+              : SubScribeTeacherImage(image: image),
         ),
         8.sbh,
         Text(
